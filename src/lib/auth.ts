@@ -1,5 +1,5 @@
 // lib/auth.ts
-import { supabase } from "./supabase";
+import { supabase } from "../utils/supabase/supabase";
 
 export async function signUpWithEmail(email: string, password: string) {
   const { data, error } = await supabase.auth.signUp({ email, password });
