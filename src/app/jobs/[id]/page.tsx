@@ -388,8 +388,19 @@ function getServerUrl(): string {
     : `https://${process.env.VERCEL_URL}`;
 }
 
+// async function getJobById(id: string): Promise<Job | null> {
+//   const res = await fetch(`${getServerUrl()}/api/jobs/${id}`, {
+//     cache: "no-store",
+//   });
+
+//   if (!res.ok) return null;
+
+//   const { data } = await res.json();
+//   return data ?? null;
+// }
+
 async function getJobById(id: string): Promise<Job | null> {
-  const res = await fetch(`${getServerUrl()}/api/jobs/${id}`, {
+  const res = await fetch(`https://piwc-job-portal.vercel.app/api/jobs/${id}`, {
     cache: "no-store",
   });
 
