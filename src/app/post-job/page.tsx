@@ -49,9 +49,5 @@ export default async function PostPage() {
     return <LoginRequired />;
   }
 
-  return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8">
-      <JobPostForm />
-    </div>
-  );
+  return <JobPostForm />;
 }

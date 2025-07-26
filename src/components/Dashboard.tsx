@@ -870,7 +870,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     if (!authLoading && (!session || userRole !== "admin")) {
-      toast.error("Unauthorized. Admin access only.");
+      // toast.error("Unauthorized. Admin access only.");
       router.push("/");
     }
   }, [authLoading, session, userRole, router]);

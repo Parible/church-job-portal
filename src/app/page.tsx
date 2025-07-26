@@ -921,7 +921,7 @@ const MotionLink = motion(Link); // ✔️ Motion-wrapped Link
 export default function Home() {
   return (
     <main>
-      <section className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 py-16 md:py-24 gap-10">
+      <section className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16  gap-10">
         {/* Text Content */}
         <motion.div
           className="flex-1 text-center md:text-left"

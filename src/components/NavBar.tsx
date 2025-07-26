@@ -392,7 +392,7 @@ export default function Navbar() {
   if (!mounted) return null;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur-sm px-1.5 md:px-4">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <div
           onClick={() => router.push("/")}

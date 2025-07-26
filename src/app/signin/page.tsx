@@ -133,7 +133,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-muted px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="w-full max-w-md bg-white border border-border rounded-xl shadow-sm p-6 md:p-8 space-y-6">
         <div className="text-center space-y-1">
           <h1 className="text-2xl font-semibold text-foreground">Sign In</h1>
@@ -166,12 +166,16 @@ export default function LoginPage() {
               required
             />
           </div>
-          <Button type="submit" className="w-full" disabled={loading}>
+          <Button
+            type="submit"
+            className="w-full bg-blue-900 hover:bg-blue-800 text-white"
+            disabled={loading}
+          >
             {loading ? "Logging in..." : "Log In"}
           </Button>
         </form>
 
-        <div className="relative text-center">
+        {/* <div className="relative text-center">
           <span className="text-xs text-muted-foreground bg-white px-2 relative z-10">
             or continue with
           </span>
@@ -193,7 +197,7 @@ export default function LoginPage() {
           >
             Continue with Facebook
           </Button>
-        </div>
+        </div> */}
 
         <div className="text-center text-sm text-muted-foreground">
           Don't have an account?{" "}

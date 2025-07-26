@@ -364,32 +364,41 @@ export default function JobPostForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-background border border-muted rounded-2xl px-8 py-10 max-w-3xl mx-auto space-y-8 shadow-sm"
+      className="bg-white dark:bg-zinc-950 border border-border rounded-3xl px-8 py-10 max-w-3xl mx-auto space-y-10 shadow-md"
     >
-      <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-        Post a Job
-      </h2>
+      <div className="space-y-1">
+        <h2 className="text-3xl font-semibold text-foreground tracking-tight">
+          Post a Job
+        </h2>
+        <p className="text-muted-foreground text-sm">
+          Reach the right candidates - fast.
+        </p>
+      </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-2">
-          <Label>Job Title</Label>
+          <Label htmlFor="title">Job Title</Label>
           <Input
+            id="title"
             name="title"
-            placeholder="e.g. Youth Ministry Coordinator"
+            placeholder="e.g. Human Resource Manager"
             value={formData.title}
             onChange={handleChange}
             required
+            className="placeholder:text-muted-foreground/60 text-sm h-10"
           />
         </div>
 
         <div className="space-y-2">
-          <Label>Location</Label>
+          <Label htmlFor="location">Location</Label>
           <Input
+            id="location"
             name="location"
-            placeholder="e.g. Lagos, Nigeria"
+            placeholder="e.g. Accra, Lapaz"
             value={formData.location}
             onChange={handleChange}
             required
+            className="placeholder:text-muted-foreground/60 text-sm h-10"
           />
         </div>
 
@@ -401,7 +410,7 @@ export default function JobPostForm() {
               setFormData((prev) => ({ ...prev, jobType: val }))
             }
           >
-            <SelectTrigger>
+            <SelectTrigger className="h-10 text-sm">
               <SelectValue placeholder="Select job type" />
             </SelectTrigger>
             <SelectContent>
@@ -420,7 +429,7 @@ export default function JobPostForm() {
               setFormData((prev) => ({ ...prev, postType: val }))
             }
           >
-            <SelectTrigger>
+            <SelectTrigger className="h-10 text-sm">
               <SelectValue placeholder="Formal or Informal" />
             </SelectTrigger>
             <SelectContent>
@@ -438,7 +447,7 @@ export default function JobPostForm() {
               setFormData((prev) => ({ ...prev, category: val }))
             }
           >
-            <SelectTrigger>
+            <SelectTrigger className="h-10 text-sm">
               <SelectValue placeholder="Select category" />
             </SelectTrigger>
             <SelectContent>
@@ -451,57 +460,65 @@ export default function JobPostForm() {
         </div>
 
         <div className="space-y-2">
-          <Label>Deadline</Label>
+          <Label htmlFor="deadline">Deadline</Label>
           <Input
+            id="deadline"
             name="deadline"
             type="date"
             value={formData.deadline}
             onChange={handleChange}
             required
+            className="text-sm h-10"
           />
         </div>
 
         <div className="col-span-full space-y-2">
-          <Label>Description</Label>
+          <Label htmlFor="description">Description</Label>
           <Textarea
+            id="description"
             name="description"
             placeholder="Describe the role and expectations..."
             value={formData.description}
             onChange={handleChange}
             rows={5}
             required
+            className="text-sm placeholder:text-muted-foreground/60"
           />
         </div>
 
         <div className="col-span-full space-y-2">
-          <Label>Requirements</Label>
+          <Label htmlFor="requirements">Requirements</Label>
           <Textarea
+            id="requirements"
             name="requirements"
             placeholder="List key qualifications and experience..."
             value={formData.requirements}
             onChange={handleChange}
             rows={4}
             required
+            className="text-sm placeholder:text-muted-foreground/60"
           />
         </div>
 
         <div className="col-span-full space-y-2">
-          <Label>External Link (optional)</Label>
+          <Label htmlFor="link">External Link</Label>
           <Input
+            id="link"
             name="link"
             type="url"
             placeholder="https://example.com"
             value={formData.link}
             onChange={handleChange}
+            className="text-sm placeholder:text-muted-foreground/60 h-10"
           />
         </div>
       </div>
 
-      <div className="pt-4">
+      <div className="pt-6">
         <Button
           type="submit"
           disabled={loading}
-          className="w-full sm:w-auto text-base px-6 h-11"
+          className="w-full sm:w-auto h-11 px-6 text-base font-semibold"
         >
           {loading ? <LoadingSpinner /> : "Post Job"}
         </Button>

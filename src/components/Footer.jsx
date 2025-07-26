@@ -99,7 +99,7 @@ function Footer() {
         </div>
 
         {/* Quick Links */}
-        <div>
+        {/* <div>
           <h3 className="text-xl font-bold text-white">Quick Links</h3>
           <ul className="mt-4 space-y-2 text-sm">
             {[
@@ -115,7 +115,7 @@ function Footer() {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
 
         {/* Social Links */}
         <div>

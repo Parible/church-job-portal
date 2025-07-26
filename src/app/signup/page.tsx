@@ -92,7 +92,11 @@ import { Label } from "@/components/ui/label";
 
 export default function SignupPage() {
   const router = useRouter();
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -100,9 +104,15 @@ export default function SignupPage() {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passwords do not match.");
+      return;
+    }
+
     setLoading(true);
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email: formData.email,
       password: formData.password,
     });
@@ -111,10 +121,11 @@ export default function SignupPage() {
 
     if (error) {
       toast.error(error.message);
-    } else {
-      toast.success("Check your email to confirm your signup.");
-      router.push("/signin");
+      return;
     }
+
+    toast.success("Sign up successful");
+    router.push("/");
   };
 
   const handleOAuth = async (provider: "google" | "facebook") => {
@@ -131,7 +142,7 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-muted px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="w-full max-w-md bg-white border border-border rounded-xl shadow-sm p-6 md:p-8 space-y-6">
         <div className="text-center space-y-1">
           <h1 className="text-2xl font-semibold text-foreground">Sign Up</h1>
@@ -154,6 +165,7 @@ export default function SignupPage() {
               autoFocus
             />
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
             <Input
@@ -166,12 +178,30 @@ export default function SignupPage() {
               required
             />
           </div>
-          <Button type="submit" className="w-full" disabled={loading}>
+
+          <div className="space-y-2">
+            <Label htmlFor="confirmPassword">Confirm Password</Label>
+            <Input
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              placeholder="••••••••"
+              autoComplete="new-password"
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <Button
+            type="submit"
+            className="w-full bg-blue-900 hover:bg-blue-800 text-white "
+            disabled={loading}
+          >
             {loading ? "Signing up..." : "Sign Up"}
           </Button>
         </form>
 
-        <div className="relative text-center">
+        {/* <div className="relative text-center">
           <span className="text-xs text-muted-foreground bg-white px-2 relative z-10">
             or continue with
           </span>
@@ -193,7 +223,7 @@ export default function SignupPage() {
           >
             Continue with Facebook
           </Button>
-        </div>
+        </div> */}
 
         <div className="text-center text-sm text-muted-foreground">
           Already have an account?{" "}
