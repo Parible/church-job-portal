@@ -914,7 +914,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import ImageHero from "@/assets/images/2025bannner.jpg";
+import ImageHero from "@/assets/images/banner-full.jpg";
 
 const MotionLink = motion(Link); // ✔️ Motion-wrapped Link
 
@@ -950,7 +950,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
             <MotionLink
               href="/jobs"
-              className="inline-block px-6 py-3 rounded-lg bg-blue-900 text-white font-medium shadow-md hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all"
+              className="inline-block px-6 py-3 rounded-lg bg-blue-900 text-white font-medium shadow-md hover:bg-blue-950 transition-all"
             >
               Browse Jobs
             </MotionLink>

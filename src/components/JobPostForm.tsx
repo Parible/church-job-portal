@@ -417,6 +417,8 @@ export default function JobPostForm() {
               <SelectItem value="onsite">Onsite</SelectItem>
               <SelectItem value="remote">Remote</SelectItem>
               <SelectItem value="hybrid">Hybrid</SelectItem>
+              <SelectItem value="full-time">Full-Time</SelectItem>
+              <SelectItem value="part-time">Part-Time</SelectItem>
             </SelectContent>
           </Select>
         </div>
