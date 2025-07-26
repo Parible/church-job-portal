@@ -241,6 +241,7 @@
 //   );
 // }
 // //
+
 "use client";
 
 import { useState } from "react";
@@ -263,7 +264,6 @@ export default function SignupPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -285,7 +285,7 @@ export default function SignupPage() {
       return;
     }
 
-    // 🔐 Assign role = jobseeker
+    // 🔐 Assign role = jobseeker via Admin API
     const res = await fetch("/api/auth/set-role", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -297,6 +297,18 @@ export default function SignupPage() {
     if (!res.ok) {
       toast.error(`Failed to assign role: ${result.error}`);
       setLoading(false);
+      return;
+    }
+
+    // ✅ Re-authenticate the user to refresh JWT with updated metadata
+    const { error: loginError } = await supabase.auth.signInWithPassword({
+      email: formData.email,
+      password: formData.password,
+    });
+
+    if (loginError) {
+      // toast.error("Role set but failed to refresh session. Please log in.");
+      router.push("/signin");
       return;
     }
 

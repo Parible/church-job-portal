@@ -851,6 +851,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import LoadingSpinner from "./LoadingSpinner";
 
 type Job = {
   id: string;
@@ -927,8 +928,8 @@ export default function AdminDashboard() {
 
   if (authLoading || (session && userRole !== "admin")) {
     return (
-      <div className="max-w-2xl mx-auto mt-10 text-center text-muted-foreground">
-        Checking admin access...
+      <div className="flex items-center justify-center h-screen">
+        <LoadingSpinner size={48} />
       </div>
     );
   }
