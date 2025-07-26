@@ -237,6 +237,7 @@
 // //     </div>
 // //   );
 // // }
+
 // import { notFound } from "next/navigation";
 // import {
 //   Briefcase,
@@ -278,11 +279,9 @@
 //   return data ?? null;
 // }
 
-// export default async function JobDetailPage({
-//   params,
-// }: {
-//   params: { id: string };
-// }) {
+// export default async function JobDetailPage(props: { params: { id: string } }) {
+//   const { params } = await props; // ✅ Await the props before accessing params
+
 //   const job = await getJobById(params.id);
 //   if (!job) return notFound();
 
@@ -365,19 +364,31 @@
 //     </main>
 //   );
 // }
-"use client";
 
-import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { notFound } from "next/navigation";
 import { Briefcase, MapPin, Globe, ExternalLink, Sparkles } from "lucide-react";
 
-function getServerUrl() {
-  return process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+interface Job {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  category: string;
+  is_remote: boolean;
+  is_onsite: boolean;
+  job_type?: string;
+  company?: string;
+  posted_at?: string;
+  link?: string;
 }
 
-async function fetchJobById(id) {
+function getServerUrl(): string {
+  return process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : `https://${process.env.VERCEL_URL}`;
+}
+
+async function getJobById(id: string): Promise<Job | null> {
   const res = await fetch(`${getServerUrl()}/api/jobs/${id}`, {
     cache: "no-store",
   });
@@ -388,30 +399,15 @@ async function fetchJobById(id) {
   return data ?? null;
 }
 
-export default function JobDetailPage() {
-  const { id } = useParams();
-  const router = useRouter();
+export default async function JobDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params; // ✅ FIXED: await the `params` object
 
-  const [job, setJob] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!id) return;
-
-    const loadJob = async () => {
-      const data = await fetchJobById(id);
-      if (!data) {
-        router.replace("/not-found");
-        return;
-      }
-      setJob(data);
-      setLoading(false);
-    };
-
-    loadJob();
-  }, [id, router]);
-
-  if (loading || !job) return null;
+  const job = await getJobById(id);
+  if (!job) return notFound();
 
   const postedDate = job.posted_at
     ? new Date(job.posted_at).toLocaleDateString(undefined, {
@@ -422,9 +418,8 @@ export default function JobDetailPage() {
     : null;
 
   return (
-    <main className="w-full min-h-screen bg-white px-6 py-20 md:py-28">
+    <main>
       <section className="max-w-4xl mx-auto space-y-10">
-        {/* Header */}
         <header className="space-y-2 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-neutral-900">
             {job.title}
@@ -441,7 +436,6 @@ export default function JobDetailPage() {
           )}
         </header>
 
-        {/* Metadata */}
         <div className="flex flex-wrap justify-center gap-3 text-sm text-neutral-600">
           <span className="inline-flex items-center gap-1 bg-neutral-100 px-3 py-1 rounded-full">
             <MapPin className="w-4 h-4 text-neutral-500" />
@@ -469,19 +463,17 @@ export default function JobDetailPage() {
           )}
         </div>
 
-        {/* Description */}
         <div className="prose prose-neutral prose-p:leading-relaxed max-w-none text-base text-neutral-800">
           <div dangerouslySetInnerHTML={{ __html: job.description }} />
         </div>
 
-        {/* Apply Button */}
         {job.link && (
           <div className="text-center pt-10">
             <a
               href={job.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white text-sm font-medium rounded-md hover:bg-neutral-900 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-900 text-white text-sm font-medium rounded-md hover:bg-blue-950 transition"
             >
               <ExternalLink className="w-4 h-4" />
               Apply Now

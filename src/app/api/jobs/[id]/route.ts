@@ -28,6 +28,7 @@
 //   console.log(`✅ Found job with ID ${id}`);
 //   return NextResponse.json({ data }, { status: 200 });
 // }
+
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/supabaseServer";
 
@@ -42,10 +43,9 @@ export async function GET(req: NextRequest) {
   }
 
   const supabase = await createClient();
-
   const { data, error } = await supabase
     .from("jobs")
-    .select("*")
+    .select("*, created_at") // make sure created_at is selected
     .eq("id", id)
     .eq("approved", true)
     .single();
@@ -57,5 +57,10 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  return NextResponse.json({ data }, { status: 200 });
+  const withPostedAt = {
+    ...data,
+    posted_at: data.posted_at ?? data.created_at,
+  };
+
+  return NextResponse.json({ data: withPostedAt }, { status: 200 });
 }

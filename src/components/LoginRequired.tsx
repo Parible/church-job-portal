@@ -19,7 +19,9 @@ export default function LoginRequired() {
           Please sign in to post a job. You’ll be redirected back here.
         </p>
         <Link href="/signin">
-          <Button className="w-full mt-2">Go to Login</Button>
+          <Button className="w-full mt-2 bg-blue-900 text-white hover:bg-blue-800">
+            Go to Login
+          </Button>
         </Link>
       </motion.div>
     </div>

@@ -145,7 +145,7 @@ export const config = {
   matcher: [
     "/post-job",
     "/admin/:path*",
-    "/dashboard/:path*",
+    "/admin/dashboard/:path*",
     "/api/admin/:path*",
     // Optionally protect more private routes here
   ],
