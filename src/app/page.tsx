@@ -938,7 +938,7 @@ export default function Home() {
 
           <div className="mt-4 space-y-3">
             <p className="text-base md:text-lg text-gray-700 dark:text-gray-300">
-              Welcome to the PIWC Odokor Job Portal.
+              Welcome to the PIWC Odorkor Job Portal.
             </p>
             <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 italic">
               Lending a helping hand to our members - let’s grow together in
