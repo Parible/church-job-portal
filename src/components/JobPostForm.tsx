@@ -269,7 +269,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { useUser } from "@/context/UserContext";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner, { ButtonLoadingSpinner } from "./LoadingSpinner";
 
 type FormState = {
   title: string;
@@ -364,7 +364,7 @@ export default function JobPostForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white dark:bg-zinc-950 border border-border rounded-3xl px-8 py-10 max-w-3xl mx-auto space-y-10 shadow-md"
+      className="bg-white border border-gray-300 rounded-xl px-6 py-10 max-w-5xl mx-auto space-y-10 "
     >
       <div className="space-y-1">
         <h2 className="text-3xl font-semibold text-foreground tracking-tight">
@@ -417,8 +417,6 @@ export default function JobPostForm() {
               <SelectItem value="onsite">Onsite</SelectItem>
               <SelectItem value="remote">Remote</SelectItem>
               <SelectItem value="hybrid">Hybrid</SelectItem>
-              <SelectItem value="full-time">Full-Time</SelectItem>
-              <SelectItem value="part-time">Part-Time</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -520,9 +518,9 @@ export default function JobPostForm() {
         <Button
           type="submit"
           disabled={loading}
-          className="w-full sm:w-auto h-11 px-6 text-base font-semibold"
+          className="w-full sm:w-auto h-11 px-6 text-base bg-blue-900 hover:bg-blue-800 text-white font-semibold"
         >
-          {loading ? <LoadingSpinner /> : "Post Job"}
+          {loading ? <ButtonLoadingSpinner /> : "Post Job"}
         </Button>
       </div>
     </form>

@@ -322,7 +322,12 @@ function LogoutDialog(props: LogoutDialogProps) {
       </div>
       <AlertDialogFooter>
         <AlertDialogCancel>Cancel</AlertDialogCancel>
-        <AlertDialogAction onClick={handleConfirm}>Logout</AlertDialogAction>
+        <AlertDialogAction
+          onClick={handleConfirm}
+          className="bg-blue-900 text-white hover:bg-blue-800"
+        >
+          Logout
+        </AlertDialogAction>
       </AlertDialogFooter>
     </AlertDialogContent>
   );

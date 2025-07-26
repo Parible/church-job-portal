@@ -252,6 +252,7 @@ import { supabase } from "@/utils/supabase/supabase";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { ButtonLoadingSpinner } from "@/components/LoadingSpinner";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -318,7 +319,7 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="flex items-center justify-center bg-gray-50">
       <div className="w-full max-w-md bg-white border rounded-xl shadow-sm p-6 md:p-8 space-y-6">
         <div className="text-center space-y-1">
           <h1 className="text-2xl font-semibold">Sign Up</h1>
@@ -371,7 +372,7 @@ export default function SignupPage() {
             className="w-full bg-blue-900 hover:bg-blue-800 text-white"
             disabled={loading}
           >
-            {loading ? "Signing up..." : "Sign Up"}
+            {loading ? <ButtonLoadingSpinner /> : "Sign Up"}
           </Button>
         </form>
 
