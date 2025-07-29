@@ -1,10 +1,6 @@
 # PIWC ODK Jobs Network
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Open%20to%20Remote%20Work-4CAF50?style=flat-square&logo=remix&logoColor=white" alt="Open to Remote Work Badge" />
-</p>
-
-A modern job and opportunity platform designed for members of PIWC ODK to connect job seekers and employers in a trusted community environment.
+A modern job and opportunity platform designed for members of PIWC Odorkor to connect job seekers and employers in a trusted community environment.
 
 ---
 
