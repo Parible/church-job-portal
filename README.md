@@ -1,8 +1,6 @@
 ## PIWC ODK Jobs Network
 
-A modern job and opportunity platform designed for members of PIWC Odorkor to connect job seekers and employers in a trusted community environment.
-
---
+A job and opportunity platform designed for members of PIWC Odorkor to connect job seekers and employers in a trusted community environment.
 
 ## 🔍 Overview
 
@@ -13,7 +11,6 @@ The PIWC ODK Jobs Network helps church members:
 - Post job or gig opportunities to help others
 - Manage everything securely with role-based access
 
----
 
 ## 🚀 Features
 
@@ -42,7 +39,6 @@ The PIWC ODK Jobs Network helps church members:
 - Approve or reject listings
 - Moderate the platform
 
----
 
 ## 🛠 Tech Stack
 
@@ -52,7 +48,6 @@ The PIWC ODK Jobs Network helps church members:
 - **Notifications** – Email & WhatsApp (Twilio / Meta API)
 - **Hosting** – Hostinger VPS, custom domain
 
----
 
 ## 📅 Coming Soon (v2)
 
@@ -63,9 +58,8 @@ The PIWC ODK Jobs Network helps church members:
 - Invite-only access with church member verification
 - Skill tagging & personalized job feeds
 
----
 
 ## 🤝 Contribution & Contact
 
-This project is currently deployed internally for PIWC ODK. If you'd like to contribute or collaborate, feel free to open an issue or contact the maintainer directly.
+This project is currently deployed internally for PIWC ODK. If you'd like to contribute or collaborate, feel free to open an issue or contact the me directly.
 
