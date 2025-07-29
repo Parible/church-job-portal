@@ -2,7 +2,7 @@
 
 A job and opportunity platform designed for members of PIWC Odorkor to connect job seekers and employers in a trusted community environment.
 
-## 🔍 Overview
+## What is does.
 
 The PIWC ODK Jobs Network helps church members:
 
@@ -12,35 +12,35 @@ The PIWC ODK Jobs Network helps church members:
 - Manage everything securely with role-based access
 
 
-## 🚀 Features
+## Features
 
-### 🧑‍💼 Roles
+### Roles
 - **Admin** – Manage users, posts, and approvals
 - **Employer** – Post jobs, review applications
 - **Job Seeker** – Search and apply for jobs
 
-### 💼 Job Listings
+### Job Listings
 - Supports formal and informal opportunities
 - Fields: title, description, type, location, deadline, link
 - Admins approve jobs before going live
 
-### 🔎 Smart Filters
+### Smart Filters
 - Category filters (Tech, Admin, Graduate, etc.)
 - Location & keyword search
 - Sort by newest or deadline
 
-### 📬 Applications
+### Applications
 - One-click apply for job seekers
 - Employers receive and review applications
 - Notifications via email and WhatsApp
 
-### 📊 Admin Dashboard
+### Admin Dashboard
 - User & job activity overview
 - Approve or reject listings
 - Moderate the platform
 
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend** – React, Tailwind CSS
 - **Backend** – Node.js, Next.js (App Router)
@@ -49,7 +49,7 @@ The PIWC ODK Jobs Network helps church members:
 - **Hosting** – Hostinger VPS, custom domain
 
 
-## 📅 Coming Soon (v2)
+## Coming Soon (v2)
 
 - Job alerts by email
 - Member CV uploads & profiles
@@ -59,7 +59,7 @@ The PIWC ODK Jobs Network helps church members:
 - Skill tagging & personalized job feeds
 
 
-## 🤝 Contribution & Contact
+## Contribution & Contact
 
 This project is currently deployed internally for PIWC ODK. If you'd like to contribute or collaborate, feel free to open an issue or contact the me directly.
 
