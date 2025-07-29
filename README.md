@@ -1,8 +1,8 @@
-# PIWC ODK Jobs Network
+## PIWC ODK Jobs Network
 
 A modern job and opportunity platform designed for members of PIWC Odorkor to connect job seekers and employers in a trusted community environment.
 
----
+--
 
 ## 🔍 Overview
 
