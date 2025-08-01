@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## PIWC Odk Jobs Network
 
-## Getting Started
+A job and opportunity platform designed for members of PIWC Odorkor to connect job seekers and employers in a trusted community environment.
 
-First, run the development server:
+## What is does.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The PIWC ODK Jobs Network helps church members:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Discover job openings (formal and informal)
+- Apply directly to roles with a click
+- Post job or gig opportunities to help others
+- Manage everything securely with role-based access
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Roles
 
-## Learn More
+- **Admin** – Manage users, posts, and approvals
+- **Employer** – Post jobs, review applications
+- **Job Seeker** – Search and apply for jobs
 
-To learn more about Next.js, take a look at the following resources:
+### Job Listings
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Supports formal and informal opportunities
+- Fields: title, description, type, location, deadline, link
+- Admins approve jobs before going live
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Smart Filters
 
-## Deploy on Vercel
+- Category filters (Tech, Admin, Graduate, etc.)
+- Location & keyword search
+- Sort by newest or deadline
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Applications
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- One-click apply for job seekers
+- Employers receive and review applications
+- Notifications via email and WhatsApp
+
+### Admin Dashboard
+
+- User & job activity overview
+- Approve or reject listings
+- Moderate the platform
+
+## Tech Stack
+
+- **Frontend** – React, Tailwind CSS
+- **Backend** – Node.js, Next.js (App Router)
+- **Database & Auth** – Supabase
+- **Notifications** – Email & WhatsApp (Twilio / Meta API)
+- **Hosting** – Hostinger VPS, custom domain
+
+## Coming Soon (v2)
+
+- Job alerts by email
+- Member CV uploads & profiles
+- Interview scheduling integration
+- Progressive Web App (PWA)
+- Invite-only access with church member verification
+- Skill tagging & personalized job feeds
+
+## Contribution & Contact
+
+This project is currently deployed internally for PIWC ODK. If you'd like to contribute or collaborate, feel free to open an issue or contact the me directly.
