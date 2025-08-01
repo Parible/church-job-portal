@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { memo } from "react";
 
-export function ButtonLoadingSpinner({
+export const ButtonLoadingSpinner = memo(function ButtonLoadingSpinner({
   size = 22,
   thickness = 3,
   label = "Loading...",
@@ -23,38 +23,37 @@ export function ButtonLoadingSpinner({
       style={{
         width: `${size}px`,
         height: `${size}px`,
-        borderTopColor: "white", // actual visible arc
-        borderRightColor: "transparent", // gap
+        borderWidth: thickness,
+        borderTopColor: "white",
+        borderRightColor: "transparent",
         borderBottomColor: "white",
         borderLeftColor: "white",
-        borderWidth: thickness,
       }}
     />
   );
-}
+});
 
-export default function LoadingSpinner({
+const LoadingSpinner = memo(function LoadingSpinner({
   size = 40,
   thickness = 5,
   label = "Loading...",
-  speed = 0.8, // seconds per rotation
 }: {
   size?: number;
   thickness?: number;
   label?: string;
-  speed?: number; // optional spin speed
 }) {
   return (
     <div
-      className="inline-block rounded-full border-t-transparent border-solid border-blue-900"
-      style={{
-        width: size,
-        height: size,
-        borderWidth: thickness,
-        animation: `spin ${speed}s linear infinite`,
-      }}
       role="status"
       aria-label={label}
+      className="inline-block animate-spin rounded-full border-solid border-blue-900 border-t-transparent"
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+        borderWidth: thickness,
+      }}
     />
   );
-}
+});
+
+export default LoadingSpinner;

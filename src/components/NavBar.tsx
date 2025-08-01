@@ -263,9 +263,7 @@ function UserDropdown({
             Post a job
           </DropdownMenuItem>
           {isAdmin && (
-            <DropdownMenuItem
-              onClick={() => (location.href = "/admin/dashboard")}
-            >
+            <DropdownMenuItem onClick={() => (location.href = "/dashboard")}>
               Admin Panel
             </DropdownMenuItem>
           )}
